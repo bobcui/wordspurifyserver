@@ -31,11 +31,16 @@ hashTable = {
 WordsPurifier.prototype.init = function(words) {
     var wordsHashTable = {}
     var replaceMethod = this.replaceMethod.bind(null, this.placeholder)
+    var num = 0
+    console.time('reload bad words');
     for (var i in words) {
         if (!!words[i]) {
             parseWord(words[i], replaceMethod, wordsHashTable)
         }
+        ++num
     }
+    console.timeEnd('reload bad words');
+    console.info('reload %s bad words', num)
     this.wordsHashTable = wordsHashTable
 }
 

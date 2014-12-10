@@ -1,4 +1,4 @@
-var lineReader = require('line-reader');
+var lineReader = require('line-reader')
 var argv = require('optimist').argv
 var WordsPurifier = require('../wordsPurifier')
 
