@@ -7,7 +7,7 @@ var argv = require('optimist').argv
 
 var host = argv.h || argv.host || '127.0.0.1'
 var port = argv.p || argv.port || 5121
-var forbiddenFile = argv.f || argv.file || './forbbiden.txt'
+var badwordsFile = argv.f || argv.file || './badwords.txt'
 
 /*
 req: words=xxxxx&cmd=check|purifiy
