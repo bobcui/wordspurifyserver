@@ -35,7 +35,7 @@ WordsPurifier.prototype.init = function(words) {
     console.time('reload bad words');
     for (var i in words) {
         if (!!words[i]) {
-            parseWord(words[i], replaceMethod, wordsHashTable)
+            parseWord(words[i].toLowerCase(), replaceMethod, wordsHashTable)
         }
         ++num
     }
@@ -45,14 +45,14 @@ WordsPurifier.prototype.init = function(words) {
 }
 
 WordsPurifier.prototype.check = function(words) {
-    return find(words, this.wordsHashTable, function(){
+    return find(words.toLowerCase(), this.wordsHashTable, function(){
         return false
     })
 }
 
 WordsPurifier.prototype.purify = function(words) {
     var purified = [], charAt = 0
-    var found = find(words, this.wordsHashTable, function(index, word, placeholder){
+    var found = find(words.toLowerCase(), this.wordsHashTable, function(index, word, placeholder){
         purified.push(words.substring(charAt, index))
         if (charAt < index) {
             charAt = index
