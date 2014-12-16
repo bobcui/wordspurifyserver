@@ -51,9 +51,9 @@ var checkBadWordsFile = function() {
 }
 
 /*
-req: words=xxxxx&cmd=check|purifiy
+req: words=xxxxx&cmd=find|purifiy
 res: JSON.stringify({
-        'found':  true|false when cmd=check
+        'found':  true|false when cmd=find
         'words': 'purified words if cmd = purifiy'
     })
 */
@@ -69,9 +69,9 @@ var startServer = function() {
                 'words': wordsPurifier.purify(words)
             }
         }
-        else if (cmd === 'check') {
+        else if (cmd === 'find') {
             result = {
-                'found': wordsPurifier.check(words)
+                'found': wordsPurifier.find(words)
             }
         }
         else {
