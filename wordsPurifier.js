@@ -44,7 +44,7 @@ WordsPurifier.prototype.init = function(words) {
     this.wordsHashTable = wordsHashTable
 }
 
-WordsPurifier.prototype.check = function(words) {
+WordsPurifier.prototype.find = function(words) {
     return find(words.toLowerCase(), this.wordsHashTable, function(){
         return false
     })
